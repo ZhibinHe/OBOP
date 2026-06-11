@@ -24,6 +24,7 @@ This repository contains the official implementation of the **OBOP Framework** (
 
 ---
 
+
 ## Installation & Requirements
 
 Ensure you have Python 3.8+ installed.
@@ -33,8 +34,6 @@ Ensure you have Python 3.8+ installed.
 git clone [https://github.com/ZhibinHe/OBOP.git](https://github.com/ZhibinHe/OBOP.git)
 cd OBOP
 pip install -r requirements.txt
-
-```
 
 
 ## Data Preparation & Structure
