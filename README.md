@@ -31,7 +31,7 @@ Ensure you have Python 3.8+ installed.
 
 ```bash
 # Clone the repository
-git clone [https://github.com/ZhibinHe/OBOP.git](https://github.com/ZhibinHe/OBOP.git)
+git clone https://github.com/ZhibinHe/OBOP.git
 cd OBOP
 pip install -r requirements.txt
 ```
