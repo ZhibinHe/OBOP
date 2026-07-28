@@ -1,6 +1,6 @@
-# One Brain, Open-Set Phenotypes (OBOP)
+# One Brain, Unseen Phenotypes (OBUP)
 
-This repository contains the official implementation of the **OBOP Framework** (One Brain, Open-set Phenotype: A Semantic-Guided Model for Brain-Phenotype Prediction). Our framework establishes a generative paradigm for **zero shot brain phenotype prediction**. By bridging textual semantic definitions with neural representations, this framework transforms static and label dependent prediction into a dynamic and generalizable inference system. It enables effective cross task and cross domain knowledge transfer without requiring target domain training data.
+This repository contains the official implementation of the **OBUP Framework** (One Brain, Unseen Phenotype: A Semantic-Guided Model for Brain-Phenotype Prediction). Our framework establishes a generative paradigm for **zero shot brain phenotype prediction**. By bridging textual semantic definitions with neural representations, this framework transforms static and label dependent prediction into a dynamic and generalizable inference system. It enables effective cross task and cross domain knowledge transfer without requiring target domain training data.
 
 ## Key Features
 * **Zero Shot Prediction:** The model dynamically generates predictors for open set (unseen) phenotypes based purely on their semantic text descriptions.
@@ -31,8 +31,8 @@ Ensure you have Python 3.8+ installed.
 
 ```bash
 # Clone the repository
-git clone https://github.com/ZhibinHe/OBOP.git
-cd OBOP
+git clone https://github.com/ZhibinHe/OBUP.git
+cd OBUP
 pip install -r requirements.txt
 ```
 
@@ -40,12 +40,12 @@ pip install -r requirements.txt
 ## Data Preparation & Structure
 Data Access Notice: Due to strict data use agreements, we cannot provide the raw neuroimaging or phenotype datasets. Users must independently apply for access to the ABCD, HCP A, HCP D, and HCP YA datasets through their respective official data sharing platforms.
 
-Once you obtain the data, you must organize it strictly according to the following directory structure to ensure compatibility with our scripts. The root directory for all data must reside at `/data/hzb/project/OBOP_data/`.
+Once you obtain the data, you must organize it strictly according to the following directory structure to ensure compatibility with our scripts. The root directory for all data must reside at `/data/hzb/project/OBUP_data/`.
 
 * Required Directory Tree (Using ABCD as an example)
 
 ```bash
-/data/hzb/project/OBOP_data/
+/data/hzb/project/OBUP_data/
 └── ABCD/
     ├── ABCD_subject_id/               # Subject ID lists (Plain text, one ID per line)
     │   ├── Subject_ID.txt             # Full cohort IDs
@@ -72,11 +72,11 @@ Our framework relies on high dimensional text embeddings to guide the generative
 
 We provide pre trained weights for our models (Stage 1 Encoder and Stage 2 Decoder) on Hugging Face to facilitate immediate testing and reproducibility.
 
-Download the weights from Hugging Face: ``https://huggingface.co/zhibinhe/OBOP``
+Download the weights from Hugging Face: ``https://huggingface.co/zhibinhe/OBUP``
 
 1. Download the ``model_merged`` folder from the Hugging Face repository.
 
-2. Place the ``model_merged`` folder in the following directory: ``/data/hzb/project/OBOP/model_merged/``.
+2. Place the ``model_merged`` folder in the following directory: ``/data/hzb/project/OBUP/model_merged/``.
 
 3. Use the ``--test_only`` flag in the scripts below to run evaluations using these pre trained weights without retraining.
 
@@ -94,7 +94,7 @@ Train on a source dataset and test on a completely independent target dataset.
 # Train on ABCD and Test on HCP A
 python 11-train_ABCD_test_CrossDomain_transfer.py --source_dataset ABCD --target_dataset HCP_A --zero_num_prediction 34 --gpu_id 0
 
-# Test Only (requires pre trained weights in /data/hzb/project/OBOP/model_merged/)
+# Test Only (requires pre trained weights in /data/hzb/project/OBUP/model_merged/)
 python 11-train_ABCD_test_CrossDomain_transfer.py --test_only --source_dataset ABCD --target_dataset HCP_A --gpu_id 0
 
 ```
